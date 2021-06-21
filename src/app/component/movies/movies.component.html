@@ -1,0 +1,37 @@
+<div class="container text-center">
+  <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 [ngStyle]="{'color':'orange'}" >MovieSearch</h2>
+        <input type="text" #moviename class="form-control">
+        <button class="btn btn-success " (click)="SearchMovie(moviename)">Search </button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row justify-content-center" *ngIf="movie?.Response=='True'">
+      <div class="col-md-4">
+        <img src="{{movie?.Poster}}" class="card-img-top" alt="img">
+      </div>
+      <div class="col-md-6">
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{movie?.Title}}</h5>
+            <p class="card-text">{{movie?.Plot}}</p>
+            <p class="card-text">{{movie?.Actors}}</p>
+            <p class="card-text">{{movie?.Director}}</p>
+            <p class="card-text">{{movie?.Genre}}</p>
+            <p class="card-text">{{movie?.Runtime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="movie?.Response=='False'">
+      <div>
+        <h1 [ngStyle]="{'color':'Blue','fontstyle':'italic'}">Movie does not exist</h1>
+        <img src="assets/images/sad.png" alt="">
+      </div>
+    </div>
+
+  </div>
+  
+
